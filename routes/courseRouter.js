@@ -62,7 +62,7 @@ router.post('/addCategories', verifyAdmin, async(req, res) => {
 
 router.get('/getCategories', async (req, res) => {
     try {
-        const categories = await catergoriesModel.find(); // Fetch all categories
+        const categories = await catergoriesModel.find(); 
         res.status(200).json({ categories });
     } catch (error) {
         res.status(500).json({ error: "Server error", details: error.message });

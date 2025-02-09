@@ -6,7 +6,7 @@ const verifyToken = require('../middlewares/verifyToken');
 
 router.post('/buy', verifyToken, async (req, res) => {
     const { courseId } = req.body;
-    const userId = req.user?.userId; // Ensure userId is retrieved correctly
+    const userId = req.user?.userId; 
 
     if (!userId) {
         return res.status(401).json({ error: "Unauthorized: User ID not found in token" });

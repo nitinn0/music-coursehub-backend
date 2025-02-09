@@ -19,12 +19,12 @@ function verifyToken(req, res, next) {
 
         if (decoded.isAdmin) {
             console.log('Admin user detected');
-            return next(); // Proceed if admin
+            return next(); 
         }
 
-        req.userId = decoded.userId; // Attach userId to request if non-admin
+        req.userId = decoded.userId; 
         console.log('Non-admin user detected');
-        next(); // Proceed for non-admin users
+        next();
 
     } catch (error) {
         console.log('Error during token verification:', error.message);

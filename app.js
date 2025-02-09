@@ -7,6 +7,7 @@ const user = require('./routes/user');
 const protectedRoute = require('./routes/protectedRoute');
 const courseRouter = require('./routes/courseRouter');
 const admin = require('./routes/admin');
+const contact = require('./routes/contact');
 
 app.use(express.json());
 app.use(cors());
@@ -20,7 +21,7 @@ app.use('/user', user);
 app.use('/admin', admin);
 app.use('/protected', protectedRoute);
 app.use('/course', courseRouter);
-// app.use('/purchase', purchaseRouter);
+app.use('/contact', contact);
 
 
 const PORT = process.env.PORT || 3000;
