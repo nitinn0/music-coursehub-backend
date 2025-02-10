@@ -47,11 +47,11 @@ router.delete('/deleteCourse/:id', verifyAdmin, async (req, res) => {
 
 router.post('/addCategories', verifyAdmin, async(req, res) => {
     try{
-    const {title, description} = req.body;
+    const {title, description, image} = req.body;
     if(!title || !description){
         return res.status(400).json({error : "All Fields req.."});
     }
-    const newCatergory = new catergoriesModel({title, description});
+    const newCatergory = new catergoriesModel({title, description, image});
     await newCatergory.save();
 
     res.status(201).json({ msg: "Category created successfully", category: newCatergory});
