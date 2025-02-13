@@ -9,7 +9,7 @@ router.post("/talktous", async (req, res) => {
     service: "gmail",
     auth: {
       user: "nitinkapoor117@gmail.com",
-      pass: "vwsu fyyk stta qslx", 
+      pass: "vwsu fyyk stta qslxj", 
     },
   });
 

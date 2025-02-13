@@ -69,6 +69,19 @@ router.get('/getCategories', async (req, res) => {
     }
 });
 
+router.delete('/deleteCategories/:id', verifyAdmin, async(req, res) => {
+    try {
+        const {id} = req.params;
+        const deletedCategory = await catergoriesModel.findByIdAndDelete(id);
+        if(!deletedCategory){
+            return res.status(404).json({error: "No Category found!"});
+        }
+        return res.status(200).json({msg: "Category deleted successfully!"});
+    } catch(error){
+        res.status(500).json({error:"Server Error!", error})
+    }
+});
+
 router.get('/availableCourses', async (req, res) => {
     try {
         const availableCourses = await courseModel.find();
@@ -80,6 +93,7 @@ router.get('/availableCourses', async (req, res) => {
         res.status(500).json({ error: "Server Error!", details: error.message });
     }
 });
+
 
 router.get('/:id', async (req, res) => {
     try {
